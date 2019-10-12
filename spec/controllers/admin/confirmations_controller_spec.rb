@@ -42,7 +42,7 @@ RSpec.describe Admin::ConfirmationsController, type: :controller do
     end
 
     context 'when email is not confirmed' do
-      let(:confirmed_at) { nil }
+      let(:confirmed_at) { Time.zone.now }
 
       it 'resends confirmation mail' do
         expect(subject).to redirect_to admin_accounts_path
